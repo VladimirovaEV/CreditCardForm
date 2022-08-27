@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"foGd2":[function(require,module,exports) {
+})({"bOLJr":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
@@ -533,6 +533,7 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"2OpUZ":[function(require,module,exports) {
 var _redom = require("redom");
+// import { el, setChildren } from '../node_modules/redom/dist/redom.es.min.js';
 const cardPage = ()=>{
     const wrapHolder = (0, _redom.el)("div.form__input-wrap.form__input-wrap_holder", [
         (0, _redom.el)("label.form__label.form__holder-label", "Card Holder"),
@@ -1081,7 +1082,7 @@ svg.extend = function extendSvg() {
 };
 svg.ns = ns;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"hzbf6"}],"hzbf6":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gDSzC"}],"gDSzC":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -1111,6 +1112,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["foGd2","2OpUZ"], "2OpUZ", "parcelRequire7921")
+},{}]},["bOLJr","2OpUZ"], "2OpUZ", "parcelRequire7921")
 
 //# sourceMappingURL=index.6690e0da.js.map

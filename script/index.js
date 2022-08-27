@@ -1,5 +1,5 @@
-import {el, setChildren} from 'redom';
-
+// import {el, setChildren} from 'redom';
+import { el, setChildren } from '../node_modules/redom/dist/redom.es.min.js';
 
 const cardPage = () => {
     const wrapHolder = el('div.form__input-wrap.form__input-wrap_holder', [el('label.form__label.form__holder-label', 'Card Holder'), el('input.input input__holder')]);
@@ -25,19 +25,17 @@ const form = document.querySelector('.form');
 
 inputHolder.addEventListener('input', (e) => {
     e.preventDefault();
-    // cardName.textContent = inputHolder.value.replace(/[А-Я]/ig, '');
     inputHolder.value = inputHolder.value.replace(/[А-Я]/ig, '');
 });
-const maskCreditCard = (card) => {
-  return card
-    // .replace(/.(?=.{5})/g, "*")
-    .match(/.{1,4}/g)
-    .join(" ");
-};
-inputNumber.addEventListener('change', (e) => {
-    e.preventDefault();
-    inputNumber.value = maskCreditCard(inputNumber.value);
-})
+
+function maskCreditCard(event) {
+    const vcc = this.value.replace(/\D/g, '');
+    this.value = '';
+    for(let i = 0; i < vcc.length; i++) {
+        this.value += (i%4==0 && i != 0 ? ' ' : '') + vcc[i];
+    }
+}
+inputNumber.addEventListener('input', maskCreditCard);
 
 inputDate.addEventListener('input', (e) => {
     e.preventDefault();
