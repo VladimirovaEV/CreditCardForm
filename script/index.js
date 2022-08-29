@@ -22,6 +22,11 @@ const cardName = document.querySelector('.card__name');
 const cardDate = document.querySelector('.card__date');
 const btn = document.querySelector('.form__button');
 const form = document.querySelector('.form');
+const inputCVV = document.querySelector('.input__cvv');
+inputHolder.setAttribute('maxLength','26');
+inputCVV.setAttribute('maxLength', '3');
+inputNumber.setAttribute('maxLength', '19');
+inputDate.setAttribute('maxLength', '5');
 
 inputHolder.addEventListener('input', (e) => {
     e.preventDefault();
@@ -37,10 +42,15 @@ function maskCreditCard(event) {
 }
 inputNumber.addEventListener('input', maskCreditCard);
 
-inputDate.addEventListener('input', (e) => {
-    e.preventDefault();
-    cardDate.textContent = inputDate.value;
-});
+function maskCardExpire(e) {
+    const date = this.value.replace(/\D/g, '');
+    this.value = '';
+    for(let i = 0; i < date.length; i++) {
+        this.value += (i%2==0 && i != 0 ? '/' : '') + date[i];
+    }
+} 
+inputDate.addEventListener('input', maskCardExpire);
+
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     cardName.textContent = inputHolder.value;
